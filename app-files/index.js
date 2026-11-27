@@ -113,7 +113,7 @@
       modelElement.setAttribute('alt', '海綿寶寶 3D 模型');
       modelElement.setAttribute('camera-controls', '');
       modelElement.setAttribute('autoplay', '');
-      modelElement.setAttribute('camera-orbit', '0deg 75deg 12m');
+      modelElement.setAttribute('camera-orbit', '0deg 75deg 7m');
       modelElement.setAttribute('camera-target', 'auto auto auto');
       modelElement.setAttribute('orientation', '0deg 0deg 180deg');
       modelElement.setAttribute('shadow-intensity', '1');
