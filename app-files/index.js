@@ -115,7 +115,7 @@
       modelElement.setAttribute('autoplay', '');
       modelElement.setAttribute('camera-orbit', '0deg 75deg 7m');
       modelElement.setAttribute('camera-target', 'auto auto auto');
-      modelElement.setAttribute('orientation', '0deg 0deg 180deg');
+      modelElement.setAttribute('orientation', '0deg 0deg 0deg');
       modelElement.setAttribute('shadow-intensity', '1');
       modelElement.setAttribute('interaction-prompt', 'none');
       modelElement.addEventListener('load', function() {
