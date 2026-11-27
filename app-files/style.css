@@ -862,3 +862,49 @@ body.view-control-buttons .viewControlButton {
 .viewControlButton-6 {
   margin-left: 105px;
 }
+
+.panorama-model-speech {
+  position: absolute;
+  top: 10px;
+  right: -270px;
+  width: 235px;
+  padding: 14px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  background: rgba(30, 42, 65, 0.92);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.55;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  z-index: 20;
+}
+
+.panorama-model-speech::after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 12px solid rgba(30, 42, 65, 0.92);
+}
+
+.panorama-model-speech.speaking {
+  border-color: #ffd84d;
+}
+
+.panorama-model-speech-button {
+  position: absolute;
+  top: 120px;
+  right: -270px;
+  z-index: 21;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 6px;
+  background: rgba(58, 68, 84, 0.92);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}

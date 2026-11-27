@@ -180,6 +180,8 @@
       stopTouchAndScrollEventPropagation(modelToggleButtonElement);
       modelContainerElement.appendChild(modelElement);
       modelContainerElement.appendChild(modelToggleButtonElement);
+      modelContainerElement.appendChild(speechBubbleElement);
+      modelContainerElement.appendChild(speechButtonElement);
       scene.hotspotContainer().createHotspot(
         modelContainerElement,
         {
@@ -188,6 +190,57 @@
         },
         { perspective: { radius: 600 } }
       );
+
+      var speechBubbleElement = document.createElement('div');
+      speechBubbleElement.classList.add('panorama-model-speech');
+      speechBubbleElement.textContent = '你好！我是海綿寶寶。我是 41411103 黃祥宇的角色，熱血又無厘頭，現在來海上教堂休息站和你介紹這裡的景點與餐點。';
+
+      var speechButtonElement = document.createElement('button');
+      speechButtonElement.type = 'button';
+      speechButtonElement.classList.add('panorama-model-speech-button');
+      speechButtonElement.textContent = '播放介紹';
+
+      var speakIntroduction = function() {
+        if (!('speechSynthesis' in window)) {
+          speechBubbleElement.textContent = '這個瀏覽器不支援語音朗讀。';
+          return;
+        }
+        window.speechSynthesis.cancel();
+        var utterance = new SpeechSynthesisUtterance(speechBubbleElement.textContent);
+        utterance.lang = 'zh-TW';
+        var voices = window.speechSynthesis.getVoices();
+        for (var voiceIndex = 0; voiceIndex < voices.length; voiceIndex++) {
+          if (voices[voiceIndex].lang && voices[voiceIndex].lang.indexOf('zh-TW') === 0) {
+            utterance.voice = voices[voiceIndex];
+            break;
+          }
+        }
+        utterance.rate = 0.95;
+        utterance.pitch = 1.08;
+        speechBubbleElement.classList.add('speaking');
+        utterance.onend = function() {
+          speechBubbleElement.classList.remove('speaking');
+          speechButtonElement.textContent = '重播介紹';
+        };
+        utterance.onerror = function() {
+          speechBubbleElement.classList.remove('speaking');
+          speechButtonElement.textContent = '播放介紹';
+        };
+        speechButtonElement.textContent = '停止朗讀';
+        window.speechSynthesis.speak(utterance);
+      };
+
+      speechButtonElement.addEventListener('click', function(event) {
+        event.stopPropagation();
+        if (window.speechSynthesis && window.speechSynthesis.speaking) {
+          window.speechSynthesis.cancel();
+          speechBubbleElement.classList.remove('speaking');
+          speechButtonElement.textContent = '重播介紹';
+        } else {
+          speakIntroduction();
+        }
+      });
+      stopTouchAndScrollEventPropagation(speechButtonElement);
     }
 
     return {
