@@ -109,7 +109,7 @@
       var modelElement = document.createElement('model-viewer');
       finalModelElement = modelElement;
       modelElement.classList.add('panorama-model');
-      modelElement.setAttribute('src', '海綿寶寶.glb?v=20261127');
+      modelElement.setAttribute('src', 'sponge-bob.glb?v=20261127-2');
       modelElement.setAttribute('alt', '海綿寶寶 3D 模型');
       modelElement.setAttribute('camera-controls', '');
       modelElement.setAttribute('autoplay', '');

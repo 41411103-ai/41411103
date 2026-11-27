@@ -46,16 +46,16 @@ model-viewer.panorama-model {
   position: absolute;
   top: 50px;
   left: 0;
-  width: 250px;
-  height: 300px;
+  width: 380px;
+  height: 440px;
   background-color: transparent;
   --poster-color: transparent;
 }
 
 .panorama-model-container {
   position: relative;
-  width: 250px;
-  height: 400px;
+  width: 380px;
+  height: 540px;
 }
 
 .panorama-model-toggle {
