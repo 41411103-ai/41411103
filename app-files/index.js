@@ -180,16 +180,6 @@
       stopTouchAndScrollEventPropagation(modelToggleButtonElement);
       modelContainerElement.appendChild(modelElement);
       modelContainerElement.appendChild(modelToggleButtonElement);
-      modelContainerElement.appendChild(speechBubbleElement);
-      modelContainerElement.appendChild(speechButtonElement);
-      scene.hotspotContainer().createHotspot(
-        modelContainerElement,
-        {
-          yaw: data.initialViewParameters.yaw,
-          pitch: data.initialViewParameters.pitch
-        },
-        { perspective: { radius: 600 } }
-      );
 
       var speechBubbleElement = document.createElement('div');
       speechBubbleElement.classList.add('panorama-model-speech');
@@ -241,6 +231,16 @@
         }
       });
       stopTouchAndScrollEventPropagation(speechButtonElement);
+      modelContainerElement.appendChild(speechBubbleElement);
+      modelContainerElement.appendChild(speechButtonElement);
+      scene.hotspotContainer().createHotspot(
+        modelContainerElement,
+        {
+          yaw: data.initialViewParameters.yaw,
+          pitch: data.initialViewParameters.pitch
+        },
+        { perspective: { radius: 600 } }
+      );
     }
 
     return {
