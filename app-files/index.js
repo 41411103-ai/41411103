@@ -102,15 +102,15 @@
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
-    // Display the latest GLB model in the final panorama only.
-    if (data.id === '5-5') {
+    // Display the latest GLB model in the rest-stop panorama only.
+    if (data.id === '4-_') {
       var modelContainerElement = document.createElement('div');
       modelContainerElement.classList.add('panorama-model-container');
       var modelElement = document.createElement('model-viewer');
       finalModelElement = modelElement;
       modelElement.classList.add('panorama-model');
-      modelElement.setAttribute('src', '41411107_1030.glb?v=20261030-1143');
-      modelElement.setAttribute('alt', '41411107_1030 3D 模型');
+      modelElement.setAttribute('src', '海綿寶寶.glb?v=20261127');
+      modelElement.setAttribute('alt', '海綿寶寶 3D 模型');
       modelElement.setAttribute('camera-controls', '');
       modelElement.setAttribute('autoplay', '');
       modelElement.setAttribute('camera-orbit', '0deg 75deg 12m');
